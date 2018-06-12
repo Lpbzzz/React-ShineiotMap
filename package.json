@@ -1,7 +1,7 @@
 {
-  "name": "React-ShineiotMap",
+  "name": "react-shineiotmap",
   "version": "1.0.70",
-  "description": "react-bmap",
+  "description": "react-bmap-shineiot",
   "main": "lib/index.js",
   "contributors": [
     {

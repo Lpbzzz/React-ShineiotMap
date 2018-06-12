@@ -103,6 +103,7 @@ export default class App extends Component {
 
     initialize() {
         var map = this.props.map;
+        var id = this.props.thisId || -1;
         if (!map) {
             return;
         }
@@ -127,13 +128,13 @@ export default class App extends Component {
                             var roadPath = this.props.roadPaths[i];
                             isClick = this.isClick(map, e.pixel, roadPath);
                             if (isClick) {
-                                this.props.onClick(i);
+                                this.props.onClick(i,id,e);
                             }
                         };
                     } else if (this.props.roadPath) {
                         isClick = this.isClick(map, e.pixel, this.props.roadPath);
                         if (isClick) {
-                            this.props.onClick(e);
+                            this.props.onClick(id,e);
                         }
                     }
 

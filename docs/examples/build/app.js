@@ -29839,6 +29839,7 @@ var App = function (_Component) {
             var _this3 = this;
 
             var map = this.props.map;
+            var id = this.props.thisId || -1;
             if (!map) {
                 return;
             }
@@ -29863,13 +29864,13 @@ var App = function (_Component) {
                                 var roadPath = _this3.props.roadPaths[i];
                                 isClick = _this3.isClick(map, e.pixel, roadPath);
                                 if (isClick) {
-                                    _this3.props.onClick(i);
+                                    _this3.props.onClick(i, id, e);
                                 }
                             };
                         } else if (_this3.props.roadPath) {
                             isClick = _this3.isClick(map, e.pixel, _this3.props.roadPath);
                             if (isClick) {
-                                _this3.props.onClick(e);
+                                _this3.props.onClick(id, e);
                             }
                         }
                     });
