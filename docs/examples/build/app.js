@@ -19086,9 +19086,9 @@ var App = function (_Component) {
                 map.panTo(position);
             }
 
-            if (this.props.autoCenterAndZoom) {
-                map.setViewport([position], this.props.centerAndZoomOptions);
-            }
+            // if(this.props.autoCenterAndZoom) {
+            //     map.setViewport([position],this.props.centerAndZoomOptions);
+            // }
         }
     }, {
         key: 'events',
