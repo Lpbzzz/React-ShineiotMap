@@ -49,6 +49,7 @@ export {default as MapvLayer} from './components/mapv-layer';
  * 服务组件
  */
 export {default as DrivingRoute} from './components/driving-route';
+export {default as DrivingRoutePonits} from './components/driving-route-nopoint';
 
 /**
  * PointLabel组件
