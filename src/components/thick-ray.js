@@ -1,11 +1,10 @@
 /**
- * @file 迁徙组件，弧线
- * @author kyle(hinikai@gmail.com)
+ * @file 迁徙组件，粗细射线
+ * @author junior2ran
  */
-
 import React from 'react';
 import Component from './component';
-import {DataSet, utilCityCenter, utilCurve, baiduMapLayer, baiduMapAnimationLayer} from 'mapv';
+import {DataSet, utilCityCenter, baiduMapLayer, utilDataRangeIntensity} from 'mapv';
 
 export default class App extends Component {
 
@@ -41,10 +40,6 @@ export default class App extends Component {
         this.pointLayer = null;
         this.textLayer.destroy();
         this.textLayer = null;
-        if (this.animationLayer) {
-            this.animationLayer.destroy();
-            this.animationLayer = null;
-        }
     }
 
     createLayers() {
@@ -60,10 +55,6 @@ export default class App extends Component {
         this.pointLayer = new baiduMapLayer(map, this.pointDataSet, {});
 
         this.textLayer = new baiduMapLayer(map, this.pointDataSet, {});
-
-        if (this.props.enableAnimation) {
-            this.animationLayer = new baiduMapAnimationLayer(map, this.lineDataSet, {});
-        }
 
     }
 
@@ -89,7 +80,6 @@ export default class App extends Component {
             this.props.data.forEach((item, index) => {
                 var fromCenter = item.from.point || utilCityCenter.getCenterByCityName(item.from.city);
                 var toCenter = item.to.point || utilCityCenter.getCenterByCityName(item.to.city);
-                var curve = utilCurve.getPoints([fromCenter, toCenter]);
 
                 if (this.props.coordType === 'bd09mc') {
                     points.push(projection.pointToLngLat(new BMap.Pixel(fromCenter.lng, fromCenter.lat)));
@@ -99,12 +89,22 @@ export default class App extends Component {
                     points.push(toCenter);
                 }
 
+                var intensity = new utilDataRangeIntensity({
+                    maxSize: 10,
+                    minSize: 1,
+                    min: this.props.min || 0,
+                    max: this.props.max || 1000
+                });
+                var lineWidth = intensity.getSize(item.count)
+                
                 lineData.push({
                     strokeStyle: item.color,
                     geometry: {
                         type: 'LineString',
-                        coordinates: curve
-                    }
+                        coordinates: [[fromCenter.lng,fromCenter.lat],[toCenter.lng, toCenter.lat]],
+                    },
+                    count: item.count,
+                    lineWidth: lineWidth
                 });
 
                 if (this.props.showToPoint !== false) {
@@ -140,9 +140,13 @@ export default class App extends Component {
         this.lineDataSet.set(lineData);
         this.lineLayer.update({
             options: this.props.lineOptions || {
+                coordType: this.props.coordType,
                 draw: 'simple',
                 strokeStyle: '#5E87DB',
-                lineWidth: 3
+                globalCompositeOperation: 'lighter',
+                shadowColor: 'rgba(255, 255, 255, 0.5)',
+                shadowBlur: 60,
+                lineWidth: 2
             }
         });
 
@@ -153,7 +157,9 @@ export default class App extends Component {
                 coordType: this.props.coordType,
                 draw: 'simple',
                 fillStyle: '#5E87DB',
-                size: 5
+                size: 5,
+                shadowColor: '#5E87DB',
+                shadowBlur: 20
             }
         });
 
@@ -170,21 +176,6 @@ export default class App extends Component {
                 size: 12
             }
         });
-
-        if (this.props.enableAnimation) {
-            this.animationLayer.update({
-                options: this.props.animationOptions || {
-                    coordType: this.props.coordType,
-                    fillStyle: 'rgba(255, 250, 250, 0.9)',
-                    lineWidth: 0,
-                    size: 4,
-                    animateTime: 50,
-                    draw: 'simple'
-                }
-            });
-        } else {
-            this.animationLayer && this.animationLayer.hide();
-        }
     }
 
 }

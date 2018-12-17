@@ -6,9 +6,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Component from './component';
+import MarkerOrderTip from './marker-order-tip';
 import CustomOverlay from '../overlay/CustomOverlay';
 
-const defaultIconUrl = 'http://webmap1.map.bdstatic.com/wolfman/static/common/images/markers_new2x_fbb9e99.png';
+const defaultIconUrl = '//huiyan.baidu.com/cms/react-bmap/markers_new2x_fbb9e99.png';
 
 var icons = {
     'simple_red': new BMap.Icon(defaultIconUrl , new BMap.Size(42 / 2, 66 / 2), {
@@ -123,14 +124,17 @@ export default class App extends Component {
     }
 
     destroy() {
-        this.props.map.removeOverlay(this.marker);
-        this.marker = null;
+        if(this.marker){
+            this.props.map.removeOverlay(this.marker);
+            this.marker = null;
+        }
     }
 
     initialize() {
 
         var map = this.props.map;
-        if (!map) {
+        let type = this.props.type;
+        if (type == 'order_tip' || !map) {
             return;
         }
 
@@ -175,13 +179,18 @@ export default class App extends Component {
             this.bindToggleMeghods(this.marker, this.toggleMethods);
         }
 
-        // if (this.props.autoViewport) {
-        //     map.panTo(position);
-        // }
+        if (this.props.autoViewport) {
+            map.setViewport([position],this.props.ViewportOptions);
+        }
+    }
 
-        // if(this.props.autoCenterAndZoom) {
-        //     map.setViewport([position],this.props.centerAndZoomOptions);
-        // }
+    render(){
+        let type = this.props.type;
+        if(type=='order_tip'){
+            return <MarkerOrderTip {...this.props}/>
+        }else{
+            return null;
+        }
     }
 
 }

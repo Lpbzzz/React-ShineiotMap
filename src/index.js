@@ -8,6 +8,7 @@
  */
 export {default as Map} from './components/map';
 export {default as Marker} from './components/marker';
+export {default as MarkerOrderTip} from './components/marker-order-tip';
 export {default as InfoWindow} from './components/infowindow';
 
 /**
@@ -49,7 +50,6 @@ export {default as MapvLayer} from './components/mapv-layer';
  * 服务组件
  */
 export {default as DrivingRoute} from './components/driving-route';
-export {default as DrivingRoutePonits} from './components/driving-route-nopoint';
 
 /**
  * PointLabel组件
@@ -57,6 +57,12 @@ export {default as DrivingRoutePonits} from './components/driving-route-nopoint'
 export {default as PointLabel} from './components/point-label';
 
 /**
- * Arc组件
+ * Od迁徙组件
  */
 export {default as Arc} from './components/arc';
+export {default as ThickRay} from './components/thick-ray';
+
+/**
+ * 地图插件
+ */
+export {default as MapListener} from './components/map-listener';

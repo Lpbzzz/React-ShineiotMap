@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Map, Arc, Marker} from '../../../src';
+import {Map, ThickRay, Marker} from '../../../src';
 import {utilCityCenter} from 'mapv';
 import {simpleMapStyle} from './mapstyle';
 
@@ -11,7 +11,7 @@ export default class App extends Component {
             anchor: new BMap.Size(66 / 2 / 2, 82 / 2 - 10)
         });
         return <Map style={{height: '400px'}} mapStyle={simpleMapStyle} center={{lng: 105.403119, lat: 38.328658}} zoom='13'>
-            <Arc enableAnimation={true}
+            <ThickRay 
                 showFromPoint={false}
                 showToPoint={true}
                 data={[
@@ -22,7 +22,8 @@ export default class App extends Component {
                     },
                     to: {
                         city: '南京'
-                    }
+                    },
+                    count: 10001
                 },
                 {
                     from: {
@@ -34,7 +35,8 @@ export default class App extends Component {
                             lng: 101.45934,
                             lat: 39.135305
                         }
-                    }
+                    },
+                    count: 1
                 },
                 {
                     from: {
@@ -42,7 +44,8 @@ export default class App extends Component {
                     },
                     to: {
                         city: '成都'
-                    }
+                    },
+                    count: 500
                 },
                 {
                     from: {
@@ -50,7 +53,8 @@ export default class App extends Component {
                     },
                     to: {
                         city: '广州'
-                    }
+                    },
+                    count: 20
                 }
             ]} />
             <Marker icon={icon} position={center} />
