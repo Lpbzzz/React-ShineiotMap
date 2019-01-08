@@ -19,7 +19,7 @@ import {render} from 'react-dom';
 
 const examples = (
   <div>
-    <h1>React-BMap 示例</h1>
+    <h1>React-BMap 示例ssss</h1>
     <h2>Map 简单地图 <a href="https://github.com/huiyan-fe/react-bmap/blob/master/docs/examples/components/map.js">示例代码</a></h2>
     <Map />
     <h2>Marker 标注 <a href="https://github.com/huiyan-fe/react-bmap/blob/master/docs/examples/components/marker.js">示例代码</a></h2>
