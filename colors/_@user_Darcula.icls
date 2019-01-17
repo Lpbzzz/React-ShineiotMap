@@ -3,33 +3,18 @@
     <property name="created">2019-01-02T11:21:04</property>
     <property name="ide">WebStorm</property>
     <property name="ideVersion">2018.3.2.0.0</property>
-    <property name="modified">2019-01-17T09:26:41</property>
+    <property name="modified">2019-01-17T09:39:33</property>
     <property name="originalScheme">Darcula</property>
   </metaInfo>
   <colors>
-    <option name="FILESTATUS_ADDED" value="a7700" />
     <option name="FILESTATUS_COPIED" value="a7700" />
-    <option name="FILESTATUS_DELETED" value="616161" />
     <option name="FILESTATUS_HIJACKED" value="b28c00" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_DELETED_FROM_FILE_SYSTEM" value="773895" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="727238" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_BOTH_CONFLICTS" value="ff0000" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS" value="ff0000" />
-    <option name="FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_PROPERTY_CONFLICTS" value="ff0000" />
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="72a038" />
     <option name="FILESTATUS_IDEA_SVN_FILESTATUS_OBSTRUCTED" value="727238" />
     <option name="FILESTATUS_IDEA_SVN_REPLACED" value="a7700" />
-    <option name="FILESTATUS_MERGED" value="7503dc" />
-    <option name="FILESTATUS_MODIFIED" value="32a0" />
-    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="3264b4" />
-    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="8aa4c8" />
     <option name="FILESTATUS_OBSOLETE" value="7c7c00" />
     <option name="FILESTATUS_RENAMED" value="3a8484" />
     <option name="FILESTATUS_SUPPRESSED" value="" />
     <option name="FILESTATUS_SWITCHED" value="8978f" />
-    <option name="FILESTATUS_UNKNOWN" value="993300" />
-    <option name="FILESTATUS_addedOutside" value="eaa00" />
-    <option name="FILESTATUS_changelistConflict" value="ff0000" />
-    <option name="FILESTATUS_modifiedOutside" value="47e4" />
   </colors>
 </scheme>
