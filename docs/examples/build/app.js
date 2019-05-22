@@ -17660,7 +17660,7 @@ var examples = _react2.default.createElement(
   _react2.default.createElement(
     'h1',
     null,
-    'React-BMap \u793A\u4F8B'
+    'React-BMap \u793A\u4F8Bssss'
   ),
   _react2.default.createElement(
     'h2',
@@ -35289,7 +35289,12 @@ var App = function (_Component) {
                     fillColor: 'red',
                     strokeColor: 'yellow',
                     autoViewport: false,
-                    path: [{ lng: 116.442519, lat: 39.945597 }, { lng: 116.484488, lat: 39.905315 }, { lng: 116.443094, lat: 39.886494 }, { lng: 116.426709, lat: 39.900001 }]
+                    path: [{ lng: 116.442519, lat: 39.945597 }, { lng: 116.484488, lat: 39.905315 }, { lng: 116.443094, lat: 39.886494 }, { lng: 116.426709, lat: 39.900001 }],
+                    events: {
+                        click: function click() {
+                            alert(11111);
+                        }
+                    }
                 })
             );
         }
