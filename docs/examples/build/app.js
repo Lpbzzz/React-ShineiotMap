@@ -1019,6 +1019,30 @@ Object.defineProperty(exports, 'MapListener', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * @file 入口主文件
+ * @author kyle(hinikai@gmail.com)
+ */
+
+/**
+ * 地图基础组件
+ */
+
+var passiveSupported = false;
+try {
+  var options = Object.defineProperty({}, 'passive', {
+    get: function get() {
+      passiveSupported = true;
+    }
+  });
+  window.addEventListener('test', null, options);
+} catch (err) {}
+
+var eventListenerThirdParam = passiveSupported ? { passive: true } : false;
+
+document.addEventListener('mousewheel', function () {}, eventListenerThirdParam);
+document.addEventListener('touchstart', function () {}, eventListenerThirdParam);
+
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -32817,7 +32841,7 @@ function colorRgb(color, opacity) {
             }
             sColor = sColorNew;
         }
-        //处理六位的颜色值  
+        //处理六位的颜色值
         var sColorChange = [];
         for (var i = 1; i < 7; i += 2) {
             sColorChange.push(parseInt("0x" + sColor.slice(i, i + 2)));

@@ -9,6 +9,7 @@ import {
 } from 'mapv';
 import mapLine from '../utils/map-line';
 import geoUtils from '../utils/geo-utils';
+import {eventListenerThirdParam} from '../utils/eventListener'
 
 export default class App extends Component {
     constructor(args) {
@@ -141,7 +142,7 @@ export default class App extends Component {
 
 
 
-                });
+                },eventListenerThirdParam);
             }
         }
 

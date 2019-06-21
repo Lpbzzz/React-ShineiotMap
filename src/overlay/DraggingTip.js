@@ -1,4 +1,5 @@
 import Tip from './Tip.js';
+import {eventListenerThirdParam} from '../utils/eventListener'
 
 function DraggingTip(options) {
     this.options = options;
@@ -20,10 +21,10 @@ function DraggingTip(options) {
         self.point = marker.point;
         tip.setPosition(marker.point)
         options.change && options.change();
-    });
+    },eventListenerThirdParam);
     marker.addEventListener('dragend', function () {
         options.changePosition && options.changePosition(self.point);
-    });
+    },eventListenerThirdParam);
     marker.enableDragging();
 }
 

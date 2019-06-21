@@ -1,3 +1,4 @@
+import {eventListenerThirdParam} from '../utils/eventListener'
 function Overlay(options){
     this.options = options || {};
     this._point = options.point;
@@ -43,16 +44,16 @@ Overlay.prototype.initialize = function(map){
     div.addEventListener('mouseover', function () {
         self.dispatchEvent('mouseover', self.options.number);
         style.backgroundColor = '#1495ff';
-    });
+    },eventListenerThirdParam);
 
     div.addEventListener('mouseout', function () {
         self.dispatchEvent('mouseout', self.options.number);
         style.backgroundColor = self._fillColor;
-    });
+    },eventListenerThirdParam);
 
     div.addEventListener('click', function () {
         self.dispatchEvent('click', self.options.number);
-    });
+    },eventListenerThirdParam);
 
     map.getPanes().markerPane.appendChild(div);
 

@@ -3,6 +3,8 @@
  * @author kyle(hinikai@gmail.com)
  */
 import {Component} from 'react';
+import {eventListenerThirdParam} from '../utils/eventListener'
+
 
 export default class App extends Component {
     constructor(args) {
@@ -21,7 +23,7 @@ export default class App extends Component {
             events.forEach((event) => {
                 obj.addEventListener(event, function () {
                     self.props.events && self.props.events[event] && self.props.events[event].apply(self, arguments);
-                });
+                },eventListenerThirdParam);
             });
         }
     }
@@ -36,7 +38,7 @@ export default class App extends Component {
         for (var key in toggleMethods) {
             if (this.props[key] !== undefined) {
                 if (this.props[key]) {
-                    obj[toggleMethods[key][0]](); 
+                    obj[toggleMethods[key][0]]();
                 } else {
                     obj[toggleMethods[key][1]]();
                 }

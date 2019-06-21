@@ -1,4 +1,5 @@
 // 自定义覆盖物
+import {eventListenerThirdParam} from '../utils/eventListener'
 function CustomOverlay(point, content, offset) {
     this._point = point;
     this.content = content;
@@ -16,7 +17,7 @@ CustomOverlay.prototype.initialize = function(map){
     div.addEventListener('touchstart', function (e) {
         e.stopPropagation();
         console.log('touchstart');
-    });
+    },eventListenerThirdParam);
     /*
     div.addEventListener('touchmove', function (e) {
         e.stopPropagation();
@@ -26,7 +27,7 @@ CustomOverlay.prototype.initialize = function(map){
     div.addEventListener('touchend', function (e) {
         e.stopPropagation();
         console.log('touchend');
-    });
+    },eventListenerThirdParam);
     if (Object.prototype.toString.call(this.content) == "[object String]") {
         div.innerHTML = this.content;
     } else {

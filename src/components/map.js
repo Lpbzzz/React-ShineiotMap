@@ -6,6 +6,7 @@
 import React from 'react';
 import Component from './component';
 import {isString} from '../utils/common';
+import { eventListenerThirdParam} from '../utils/eventListener'
 
 export default class Map extends Component {
 
@@ -135,7 +136,7 @@ export default class Map extends Component {
         this.map = map;
 
         var zoom = this.props.zoom;
-        
+
         // 在 centerAndZoom() 之前执行事件绑定否则load无法正常触发
         this.bindEvent(map, this.events);
 
@@ -159,7 +160,7 @@ export default class Map extends Component {
             var zoom = map.getZoom();
             this.props.zoom_changed && this.props.zoom_changed(zoom, lastZoom);
             lastZoom = zoom;
-        });
+        },eventListenerThirdParam);
 
     }
 

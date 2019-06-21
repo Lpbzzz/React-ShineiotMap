@@ -1,6 +1,7 @@
 import Component from './component';
 import {DataSet, baiduMapLayer, baiduMapAnimationLayer} from 'mapv';
 import NumberMarker from '../overlay/NumberMarker';
+import {eventListenerThirdParam} from '../utils/eventListener'
 
 export default class App extends Component {
     constructor(args) {
@@ -155,15 +156,15 @@ export default class App extends Component {
                 var marker = new NumberMarker(options);
                 marker.addEventListener('click', function(e, number) {
                     self.props.onClick && self.props.onClick(number - 1);
-                });
+                },eventListenerThirdParam);
 
                 marker.addEventListener('mouseover', function(e, number) {
                     self.props.onMouseOver && self.props.onMouseOver(number - 1);
-                });
+                },eventListenerThirdParam);
 
                 marker.addEventListener('mouseout', function(e, number) {
                     self.props.onMouseOut && self.props.onMouseOut(number - 1);
-                });
+                },eventListenerThirdParam);
 
                 marker.index = i;
                 this.markers.push(marker);
@@ -175,7 +176,7 @@ export default class App extends Component {
                     count: data[i].count,
                     text: data[i].text
                 });
-            } 
+            }
         }
 
         var length = this.markers.length;

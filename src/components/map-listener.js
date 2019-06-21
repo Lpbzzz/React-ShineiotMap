@@ -3,7 +3,7 @@
  * @author hedongran
  */
 import React from 'react';
-
+import {eventListenerThirdParam} from '../utils/eventListener'
 /**
  * 防抖函数
  * @param method 事件触发的操作
@@ -98,7 +98,7 @@ export default class MapListener extends React.Component {
         } else {
             this.onZoomend = fn;
         }
-        map.addEventListener('zoomend', this.onZoomend);
+        map.addEventListener('zoomend', this.onZoomend,eventListenerThirdParam);
     }
 
     _bindDragendEvent() {
@@ -111,7 +111,7 @@ export default class MapListener extends React.Component {
         } else {
             this.onDragend = fn;
         }
-        map.addEventListener('dragend', this.onDragend);
+        map.addEventListener('dragend', this.onDragend,eventListenerThirdParam);
     }
 
     render() {
