@@ -23,6 +23,7 @@ export default class App extends Component {
                 fillColor='red'
                 strokeColor='yellow'
                 autoViewport={false}
+                enableEditing={true}
                 path={[
                     {lng: 116.442519, lat: 39.945597},
                     {lng: 116.484488, lat: 39.905315},

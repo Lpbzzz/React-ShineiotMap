@@ -66,10 +66,10 @@ Overlay.prototype.draw = function(){
     this._div.style.top  = pixel.y - (this._size + this._lineWidth) / 2 + "px";
 }
 
-  
-/*16进制颜色转为RGB格式*/  
+
+/*16进制颜色转为RGB格式*/
 function colorRgb(color, opacity) {
-    var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;  
+    var reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
     var sColor = color.toLowerCase();
     if (sColor && reg.test(sColor)) {
         if (sColor.length === 4) {
@@ -79,7 +79,7 @@ function colorRgb(color, opacity) {
             }
             sColor = sColorNew;
         }
-        //处理六位的颜色值  
+        //处理六位的颜色值
         var sColorChange = [];
         for (var i = 1; i < 7; i += 2){
             sColorChange.push(parseInt("0x" + sColor.slice(i, i + 2)));

@@ -6,6 +6,24 @@
 /**
  * 地图基础组件
  */
+
+var passiveSupported = false;
+try {
+  var options = Object.defineProperty({}, 'passive', {
+    get: function() {
+      passiveSupported = true;
+    },
+  });
+  window.addEventListener('test', null, options);
+} catch (err) {
+}
+
+const eventListenerThirdParam= passiveSupported ? { passive: true } : false
+
+document.addEventListener('mousewheel', ()=>{}, eventListenerThirdParam);
+document.addEventListener('touchstart', ()=>{}, eventListenerThirdParam);
+
+
 export {default as Map} from './components/map';
 export {default as Marker} from './components/marker';
 export {default as MarkerOrderTip} from './components/marker-order-tip';
